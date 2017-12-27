@@ -1,0 +1,18 @@
+sudo: false
+language: ruby
+services:
+  - docker
+before_install:
+  - git clone --depth 1 https://github.com/seiferma/Docker_BuildUtils.git /tmp/BuildUtils
+  - . /tmp/BuildUtils/travisSetup.sh
+script:
+  - travisBuild.sh
+deploy:
+  provider: script
+  script: travisDeploy.sh
+  on:
+    branch: master
+env:
+  global: 
+    - IMAGE_NAME=seiferma/rssh-backup
+    - secure: "jbj0RbkJhSztBhILGcIEcMPNwdugSYVEgzYi/R3OcRkjSAelduaCX92h2cNCpqaFD66jf6pI4NNxpfGNOc3caoGi0WOPq5TJAGy+UhO7COodR0/M3e1Pj02S8wR72UhMHU18hNL7IFYgjt3axveKsNYraqGa//l3VPM0G8ucbylWv7wKUSMjccYkjZ9BXn4gDq+Bz01fxBoji4r9mUI9+eMwoKRDcLdTlYvVuyHIZB/t87fs6Sg/YpK246YfgmpM63oiPx96CRGgYV6H6GvYEQ71Y5XiDfNKGyrOdJXCsh9aMZ1nub1Ew0yXvU8cYtVNCCTCT6k7wHsDrM9P9sjdO+SxFOx0fMve59g9dpIDYoPj0M1EqqzFakRRGg4zs/ttMsc0H2JkKkWyrlRSPxNkV4mmL98bEZJa13Tjag6Jqdq74KkwuA7zEd90r4l3jiSOxMBJoun+J9e2upryPSZX/wQL2++0iuHkkN0udUaFP6S1+91hzJBTaVWiAp3toj40g1OuGSdv5wDhrQx+MerKj1slynpq0YgET1H3MEzgNvCtuOU85HvuL4IQmVLyN50FRzElhMyA+M6fokgGkNvdCwcxZh68MK/zE8yxAjHyEuTavVZbmmJ/NkTzP/39EFHTWyPEx0SEOTePHuW0oNSxZZ+m/rOWEXRCd+GYdOWG1dk="
