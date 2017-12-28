@@ -21,5 +21,7 @@ COPY ["init.sh", "./"]
 COPY ["sshd_config", "/etc/ssh/"]
 COPY ["rssh.conf", "/etc"]
 
+RUN echo "chrootpath=${VOL_HOME}" >> /etc/rssh.conf
+
 ENTRYPOINT ["./init.sh"]
 CMD ["sshd"]
