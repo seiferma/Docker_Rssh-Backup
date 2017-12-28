@@ -51,6 +51,7 @@ elif [ "$1" == "adduser" ]; then
     mkdir $USERDIR/.ssh
     chmod -R 750 $USERDIR
     echo $3 > $USERDIR/.ssh/authorized_keys
+    sed -i -e "s/$2:!:/$2:\*:/" $UNIX_USERS/shadow
 
 else
     echo "Executing command"
