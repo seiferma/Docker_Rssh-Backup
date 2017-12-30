@@ -38,7 +38,7 @@ ln -s $SSH_KEYS/ssh_host_ed25519_key /etc/ssh/ssh_host_ed25519_key
 
 if [ "$1" == "sshd" ]; then
     echo "Starting ssh server"
-    /usr/sbin/sshd -D -e
+    exec /usr/sbin/sshd -D -e
 
 elif [ "$1" == "adduser" ]; then
     if [ -z "$2" ] || [ -z "$3" ]; then
