@@ -4,9 +4,9 @@ services:
   - docker
 before_install:
   - git clone --depth 1 https://github.com/seiferma/Docker_BuildUtils.git /tmp/BuildUtils
-  - . /tmp/BuildUtils/travisSetupDockerhub.sh
+  - . /tmp/BuildUtils/travisSetup.sh
 script:
-  - travisBuild.sh
+  - travisBuildDockerhub.sh
 deploy:
   provider: script
   script: travisDeployDockerhub.sh
