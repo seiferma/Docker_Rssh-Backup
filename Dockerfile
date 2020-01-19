@@ -3,7 +3,7 @@ FROM alpine:latest
 WORKDIR /rssh
 
 RUN RSSH_VERSION=2.3.4-r0 && \
-    RSYNC_VERSION=3.1.3-r1 && \
+    RSYNC_VERSION=3.1.3-r2 && \
     SSH_VERSION=8.1_p1-r0 && \
     apk --no-cache add rssh=${RSSH_VERSION} rsync=${RSYNC_VERSION} openssh-server=${SSH_VERSION} && \
     RSSH_VERSION= && \
